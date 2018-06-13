@@ -24,9 +24,24 @@ a:hover {
 <body>
 <h2>DirLister output for directory:</h2>
 <p>https://azavrin.github.io/cttc/*.*</p>
-<p>Total files: 27 (368.1KB) </p>
+
 <p>&nbsp;</p>
-<p><a href="http://www.hot.ee%5Cdukelupus%5C" target="_blank">www.hot.ee\dukelupus</a></p>
+const fs = require('fs');
+const path = require('path');
+
+function walkSync (dir, filelist = []) {
+    fs.readdirSync(dir).forEach(file => {
+        const dirFile = path.join(dir, file);
+        try {
+            filelist = walkSync(dirFile, filelist);
+        }
+        catch (err) {
+            if (err.code === 'ENOTDIR' || err.code === 'EBUSY') filelist = [...filelist, dirFile];
+            else throw err;
+        }
+    });
+    return filelist;
+}  
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <ul>
