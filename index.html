@@ -1,83 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>DirLister</title>
-<style type="text/css">
-<!--
-body,td,th {
-	color: #000000;
-}
-body {
-	background-color: #CCCCCC;
-}
-a:link {
-	color: #000000;
-}
-a:hover {
-	color: #000066;
-}
--->
-</style></head>
+function get_folder_files(file_type, title, param_path) {
+	// v.0.1.2
+	var path = "";	
+	if(!param_path) {
+		var tmp_file = File.openDialog(title, file_type);		
+		if(!tmp_file) {exit(); };
+		path = tmp_file.path;
+	}else { path = param_path; };
 
-<body>
-<h2>DirLister output for directory:</h2>
-<p>https://azavrin.github.io/cttc/*.*</p>
-
-<p>&nbsp;</p>
-const fs = require('fs');
-const path = require('path');
-
-function walkSync (dir, filelist = []) {
-    fs.readdirSync(dir).forEach(file => {
-        const dirFile = path.join(dir, file);
-        try {
-            filelist = walkSync(dirFile, filelist);
-        }
-        catch (err) {
-            if (err.code === 'ENOTDIR' || err.code === 'EBUSY') filelist = [...filelist, dirFile];
-            else throw err;
-        }
-    });
-    return filelist;
-}  
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<ul>
-<li>D:\Dropbox (MyVest)\Public\cttc.git\
-<ul>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\index.py" target="_self">index.py</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR01072018.HTM" target="_self">RR01072018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR01142018.HTM" target="_self">RR01142018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR01212018.HTM" target="_self">RR01212018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR01282018.HTM" target="_self">RR01282018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR02042018.HTM" target="_self">RR02042018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR02112018.HTM" target="_self">RR02112018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR02182018.HTM" target="_self">RR02182018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR02252018.HTM" target="_self">RR02252018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR03042018.HTM" target="_self">RR03042018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR03112018.HTM" target="_self">RR03112018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR03182018.HTM" target="_self">RR03182018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR03252018.HTM" target="_self">RR03252018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR04012018.HTM" target="_self">RR04012018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR04082018.HTM" target="_self">RR04082018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR04152018.HTM" target="_self">RR04152018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR04222018.HTM" target="_self">RR04222018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR04262018.HTM" target="_self">RR04262018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR04292018.HTM" target="_self">RR04292018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR05062018.HTM" target="_self">RR05062018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR05132018.HTM" target="_self">RR05132018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR05202018.HTM" target="_self">RR05202018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR05272018.HTM" target="_self">RR05272018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR06102018.HTM" target="_self">RR06102018.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR12172017.HTM" target="_self">RR12172017.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR12212017.HTM" target="_self">RR12212017.HTM</a> </li>
-<li><a href="file://D:\Dropbox (MyVest)\Public\cttc.git\RR12312017.HTM" target="_self">RR12312017.HTM</a> </li>
-</ul>
-<p>&nbsp;</p>
-</li>
-</ul>
-<p>&nbsp;</p>
-</body>
-</html>
+	var my_folder = new Folder(path);
+	return my_folder.getFiles(file_type);
+};
