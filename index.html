@@ -1,12 +1,253 @@
-function get_folder_files(file_type, title, param_path) {
-	// v.0.1.2
-	var path = "";	
-	if(!param_path) {
-		var tmp_file = File.openDialog(title, file_type);		
-		if(!tmp_file) {exit(); };
-		path = tmp_file.path;
-	}else { path = param_path; };
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<title>My Index</title>
+<style type="text/css">
+body
+{
+	margin: 0;
+	padding: 2em;
+	background-color: white;
+}
+.adir *
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.adir
+{
+	font-family: 'Segoe UI','Helvetica Neue',Arial,sans-serif;
+	color: black;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 0.875em;
+	line-height: 1.5;
+	box-sizing: border-box;
+}
+.adir h1
+{
+	font-weight: normal;
+	color: black;
+	font-size: 200%;
+}
+.adir h2
+{
+	font-weight: normal;
+	color: black;
+	font-size: 150%;
+	margin-top: 2em;
+}
+.adir h3
+{
+	font-weight: normal;
+	color: gray;
+	font-size: 100%;
+}
+.adir table
+{
+	border-spacing: 0;
+	width: 100%;
+	line-height: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	table-layout: fixed;
+	margin: 1em 0;
+}
+.adir table > thead > tr > td
+{
+	padding: 0.5em 2em 0.5em 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #EEE;
+	font-size: 100%;
+	color: gray;
+}
+.adir table > tbody > tr > td
+{
+	padding: 0.5em 2em 0.5em 0;
+	vertical-align: top;
+	border-bottom: 1px solid #EEE;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.adir table>tbody>tr:nth-child(even)
+{
+	background-color: #FDFDFD;
+}
+.adir a:link
+{
+	color: steelblue;
+	text-decoration: none;
+}
+.adir a:visited
+{
+	color: steelblue;
+}
+.adir a:active
+{
+	color: steelblue;
+}
+.adir a:hover
+{
+	color: orange;
+}
+.adir .col-file
+{
+	width: 60%;
+}
+.adir .col-size
+{
+	width: 20%;
+}
+.adir .col-date
+{
+	width: 20%;
+}
+.adir .col-cust
+{
+	width: 0;
+}
+.adir .file
+{
+	width: 60%;
+}
+.adir .file a:link
+{
 
-	var my_folder = new Folder(path);
-	return my_folder.getFiles(file_type);
-};
+}
+.adir .file a:visited
+{
+
+}
+.adir .file a:active
+{
+
+}
+.adir .file a:hover
+{
+
+}
+.adir .fold
+{
+	width: 60%;
+}
+.adir .fold a:link
+{
+	color: steelblue;
+}
+.adir .fold a:visited
+{
+	color: steelblue;
+}
+.adir .fold a:active
+{
+	color: steelblue;
+}
+.adir .fold a:hover
+{
+	color: orange;
+}
+.adir .size
+{
+	width: 20%;
+	text-align: right;
+}
+.adir .fols
+{
+	text-align: right;
+	color: lightgray;
+	width: 20%;
+}
+.adir .date
+{
+	width: 20%;
+}
+.adir .cust
+{
+	width: 0;
+}
+.adir .fold .lnkup:link
+{
+	
+}
+.adir .fold .lnkup:visited
+{
+	
+}
+.adir .fold .lnkup:active
+{
+	
+}
+.adir .fold .lnkup:hover
+{
+	
+}
+.adir .folsup
+{
+
+}
+.adir .lnkho:link
+{
+	
+}
+.adir .lnkho:visited
+{
+	
+}
+.adir .lnkho:active
+{
+	
+}
+.adir .lnkho:hover
+{
+	
+}
+</style>
+</head>
+<body>
+<div class="adir">
+<div style="color:black;border:1px solid darkorange;padding:1em;background-color:#ffffef;font-size:100%;">Arclab&reg; Dir2HTML - Test Version<br>The test version replaces every second filename in a folder with "TEST-VERSION".<br><a href="https://www.arclab.com/en/dir2html/">Arclab Dir2HTML Website</a> | <a href="https://www.arclab.com/en/dir2html/purchase.html">Purchase license</a>.</div><p>&nbsp;</p>
+<h1 id="F1F">My Index</h1>
+<p><a class="lnkho" href="https://azavrin.github.io/cttc/">Back to homepage</a></p>
+<table>
+<thead>
+<tr><td class="col-size">Size:</td><td class="col-file">File:</td><td class="col-date">Date:</td></tr>
+</thead>
+<tr><td class="size">14 KB</td><td class="file"><a href="./RR01072018.HTM">RR01072018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">12 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">13 KB</td><td class="file"><a href="./RR01212018.HTM">RR01212018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">15 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">17 KB</td><td class="file"><a href="./RR02042018.HTM">RR02042018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">16 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">17 KB</td><td class="file"><a href="./RR02182018.HTM">RR02182018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">17 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">15 KB</td><td class="file"><a href="./RR03042018.HTM">RR03042018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">9.950 B</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">14 KB</td><td class="file"><a href="./RR03182018.HTM">RR03182018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">12 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">15 KB</td><td class="file"><a href="./RR04012018.HTM">RR04012018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">15 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">15 KB</td><td class="file"><a href="./RR04152018.HTM">RR04152018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">12 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">15 KB</td><td class="file"><a href="./RR04262018.HTM">RR04262018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">12 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">10 KB</td><td class="file"><a href="./RR05062018.HTM">RR05062018.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">11 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">12 KB</td><td class="file"><a href="./RR05202018.HTM">RR05202018.HTM</a></td><td class="date">05/20/2018 14:37</td></tr>
+<tr><td class="size">13 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/27/2018 14:40</td></tr>
+<tr><td class="size">12 KB</td><td class="file"><a href="./RR06102018.HTM">RR06102018.HTM</a></td><td class="date">06/10/2018 14:36</td></tr>
+<tr><td class="size">11 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">16 KB</td><td class="file"><a href="./RR12212017.HTM">RR12212017.HTM</a></td><td class="date">05/13/2018 19:29</td></tr>
+<tr><td class="size">11 KB</td><td class="file"><a href="https://www.arclab.com/en/dir2html/">TEST-VERSION</a></td><td class="date">05/13/2018 19:29</td></tr>
+</table>
+<h3>Total: 362 KB in: 26 File(s)</h3><p>&nbsp;</p><p>Created with <a href="https://www.arclab.com/en/dir2html/" target="_blank">Arclab Dir2HTML</a> 3.1 on 06/13/2018 07:06</p>
+</div>
+</body>
+</html>
